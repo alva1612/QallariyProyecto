@@ -1,0 +1,136 @@
+﻿@model IEnumerable<QallariyProyecto.Models.Negocio>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idNegocio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombreNegocio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descripcionNegocio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.vendedor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.categoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.distrito)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.imagen)
+            </th>
+            <!--
+            <th>
+                @Html.DisplayNameFor(model => model.facebook)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.instagram)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tiktok)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.correo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.whatsapp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.website)
+            </th>
+                -->
+            <th>
+                @Html.DisplayNameFor(model => model.verificado)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.idNegocio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombreNegocio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcionNegocio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vendedor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.categoria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.distrito)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.telefono)
+            </td>
+            <td>
+                @if (item.hasImage)
+                {
+                    <img src="data:image;base64,@System.Convert.ToBase64String(item.imagen)" style="max-width:300px;max-height:300px"/>
+                }
+                else
+                {
+                    <p>Aún no se ha agregado una imagen</p>
+                }
+            </td>
+            <!--
+            <td>
+                @Html.DisplayFor(modelItem => item.facebook)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.instagram)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tiktok)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.correo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.whatsapp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.website)
+            </td>
+            -->
+            <td>
+                @Html.DisplayFor(modelItem => item.verificado)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
