@@ -1,0 +1,133 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Session;
+using Microsoft.Data.SqlClient;
+using System.Data;
+using QallariyProyecto.Models;
+using Microsoft.AspNetCore.Http;
+
+namespace QallariyProyecto.Controllers
+{
+    public class LoginController : Controller
+    {
+        string cadena = @"server= DESKTOP-SHU1TP6; database=qallariy; Trusted_Connection=true; " +
+           "MultipleActiveResultSets=true; TrustServerCertificate=False; Encrypt=False ";
+        string sesion = "";
+
+        string verifica(string corre, string clave)
+        { 
+            string mensaje = "";
+
+            using (SqlConnection cn = new SqlConnection(cadena))
+
+            {
+
+                try
+
+                {
+
+                    SqlCommand cmd = new SqlCommand("usp_acceso_login", cn);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@correo", corre);
+
+                    cmd.Parameters.AddWithValue("@clave", clave);
+
+                    cn.Open();
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    if (!dr.HasRows)
+
+                        mensaje = "Datos incorrectos";
+
+                    else
+
+                        mensaje = "Ok";
+
+                }
+
+                catch (Exception ex) { mensaje = ex.Message; }
+
+                finally { cn.Close(); }
+
+            }
+
+            return mensaje;
+
+        }
+
+        public async Task<IActionResult> Logeo()
+
+        {
+
+            return View(await Task.Run(() => new Vendedor()));
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Logeo(Vendedor reg)
+
+        {
+
+            if (!ModelState.IsValid)
+
+                return View(await Task.Run(() => reg));
+
+            string mensaje = verifica(reg.correo, reg.password);
+
+
+
+            if (mensaje != "Ok")
+
+            {
+
+
+                HttpContext.Session.SetString(sesion, "");
+
+
+                ModelState.AddModelError("", mensaje);
+
+
+
+                return View(await Task.Run(() => reg));
+
+            }
+
+
+            ModelState.AddModelError("", "");
+           
+                HttpContext.Session.SetString(sesion, reg.correo);
+            
+            
+
+           
+
+            return RedirectToAction("detalleNegocio");
+
+
+
+        }
+
+        public IActionResult detalleNegocio()
+
+        {
+
+            //almaceno en un ViewBag el contenido del session de key sesion
+
+            ViewBag.usuario = HttpContext.Session.GetString(sesion);
+
+            return View();
+
+        }
+
+        //public IActionResult detalleNegocio()
+        //{
+        //    return View();
+        //}
+    }
+}

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!-- CSS only -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+	crossorigin="anonymous">
+<head>
+<meta charset="ISO-8859-1">
+<title>Registra tu tienda</title>
+</head>
+<style>
+    .fondo{
+        background-color: #f5f5f5;
+    }
+    .box{
+        border: 8px outset #61E1E6; 
+        border-radius: 45px; 
+        width: 735px; 
+        height: auto; margin: auto; 
+        margin-top: 1%; 
+        padding: 20px 50px; 
+        font-family:'century gothic'; 
+        margin-bottom: 70px; 
+        background-color: white
+    }
+    .title{
+        font-weight: bold; 
+        text-align: center; 
+        color: cadetblue; 
+        font-size: x-large;
+    }
+    .imgmer img{
+        width: 260px; 
+        margin-top: 15px;
+        margin-left: 180px;
+
+    }
+    .custom-file{
+        margin-left: 108px; 
+        margin-top: 10px;
+    }
+    .imgInp{
+        width: 378px;
+    }
+    .btn{
+        height: 38px; 
+        width: 255px; 
+        border-radius: 8px; 
+        color: white; 
+        background-color: #61E1E6; 
+        border-width: 0px; 
+        margin: auto; 
+        font-size: 15px; 
+        font-family: 'century gothic'; 
+        font-weight: bold; 
+        margin-top: 27px; 
+        margin-left: 178px;
+    }
+</style>
+<body class="fondo">
+	<form class="row g-3 box">
+		<p class="title">Es hora de registrar tu negocio</p>
+		<div class="datos-negocio d-flex">
+			<div class="dcontent">
+				<div class="row col-md">
+                    <div class="container animated bounce col-12 mb-3">
+						<form id="form1" runat="server">
+				    		<div class="alert">
+				   			</div>
+				    		<div class="imgmer" id='img_container'>
+				    			<img id="preview" src="https://webdevtrick.com/wp-content/uploads/preview-img.jpg" alt="your image" title=''/>
+				    		</div> 
+				    		<div class="input-group"> 
+				    		<div class="custom-file">
+				    			<label class="custom-file-label" for="inputGroupFile01">Selecciona un logo</label> <br>
+							    <input type="file" id="inputGroupFile01" class="imgInp custom-file-input" aria-describedby="inputGroupFileAddon01">    
+							</div>
+							</div>
+						</form>
+            		</div>
+		
+                    <div class="col-12 mb-3">
+                        <label for="inputNombre" class="form-label">Nombre</label> 
+                            <input name="inputNombre" type="text" class="form-control">
+                    </div>	
+					
+                    <div class="col-6 mb-3">
+                        <label for="inputCategoria" class="form-label">Categoria</label>
+                            <select name="inputCat" class="form-select">
+                                <option value="-1">Seleccione</option>
+                            </select>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label for="inputPhone" class="form-label">Celular</label> 
+                        <input type="text" class="form-control" name="inputPhone">
+                    </div>			
+                    <div class="form-group col-md-4">
+                        <label for="inputDepa">Departamento</label> <select id="inputDepa"
+                        class="form-control">
+                        <option value="-1">Seleccione</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                            <label for="inputProv">Provincia</label> <select id="inputProv"
+                                class="form-control">
+                                <option value="-1">Seleccione</option>
+                            </select>
+                    </div>
+                    <div class="form-group col-md-4" >
+                        <label for="inputDist">Distritos</label> 
+                        <select id="inputDist" class="form-control">
+                        <option value="-1">Seleccione</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group mt-4">
+                    <label for="inputDesc">Descripcion</label>
+                    <textarea class="form-control" name="inputDesc" rows="3"></textarea>
+                </div>
+
+		        <button type="submit" class="btn btn-primary"> Sign in</button>
+
+                <p style="text-align: center; padding-top: 10px;">
+                    Si ya tienes una cuenta de vendedor, haz click <strong> aqui
+                    </strong>
+                </p>
+            </div>
+        </div>
+	</form>
+	<script type="text/javascript"
+		src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+</body>
+
+<!-- Script del lector de imagen -->
+<script type="text/javascript" src="/js/site.js"></script>
+</html>
