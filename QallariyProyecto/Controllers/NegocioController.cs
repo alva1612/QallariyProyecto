@@ -24,16 +24,17 @@ namespace QallariyProyecto.Controllers
         public async Task<IActionResult> registrar()
         {
             ViewBag.departamentos = new SelectList(await uc.departamentos(), "idDepartamento", "descripcion");
+            
             return View( await Task.Run(() => new NegocioUpload()));
         }
 
         [HttpPost] public async Task<IActionResult>registrar(NegocioUpload reg, IFormFile imagen)
         {
-            /*
-            if (reg.imagen != null)
+            
+            if (reg != null)
             {
-                if (reg.imagen.Length>0)
-                {*/
+                if (imagen != null)
+                {
 
                     using (var target = new MemoryStream())
                     {
@@ -42,10 +43,10 @@ namespace QallariyProyecto.Controllers
                         //reg.imagen = target.ToArray();
                         byte[] imagenByte =  target.ToArray();
                         reg.imagen = imagenByte;
-            }/*      
+            }
                     
                 }
-            }*/
+            }
             
             string mensaje = "";
 
