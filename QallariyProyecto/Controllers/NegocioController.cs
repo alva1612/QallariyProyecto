@@ -9,7 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using System.Web;
+
 
 namespace QallariyProyecto.Controllers
 {
@@ -29,12 +29,7 @@ namespace QallariyProyecto.Controllers
 
         [HttpPost] public async Task<IActionResult>registrar(NegocioUpload reg, IFormFile imagen)
         {
-            /*
-            if (reg.imagen != null)
-            {
-                if (reg.imagen.Length>0)
-                {*/
-
+            
                     using (var target = new MemoryStream())
                     {
                         
@@ -42,10 +37,7 @@ namespace QallariyProyecto.Controllers
                         //reg.imagen = target.ToArray();
                         byte[] imagenByte =  target.ToArray();
                         reg.imagen = imagenByte;
-            }/*      
-                    
-                }
-            }*/
+            }
             
             string mensaje = "";
 

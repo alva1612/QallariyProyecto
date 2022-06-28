@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,8 +24,17 @@ namespace QallariyProyecto
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddControllersWithViews();
-            services.AddSession();
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+            }); //Se agrega la session
+            //services.AddDistributedMemoryCache();
+            
+            //services.AddHttpContextAccessor();
+            
+            //services.AddSession();
+          
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,8 +54,9 @@ namespace QallariyProyecto
             app.UseStaticFiles();
 
             app.UseRouting();
-            app.UseSession();
             app.UseAuthorization();
+            app.UseSession();
+            
 
             app.UseEndpoints(endpoints =>
             {

@@ -1,0 +1,87 @@
+﻿@model QallariyProyecto.Models.Producto
+
+@{
+    ViewData["Title"] = "registrarProducto";
+}
+
+<h1>registrarProducto</h1>
+
+<h4>Producto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="registrarProducto" enctype="multipart/form-data" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="idProducto" class="control-label"></label>
+                <input asp-for="idProducto" class="form-control" />
+                <span asp-validation-for="idProducto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="idnegocio" class="control-label"></label>
+                <input asp-for="idnegocio" class="form-control" value="@ViewBag.vendedor"/>
+                <span asp-validation-for="idnegocio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="negocio" class="control-label"></label>
+                <input asp-for="negocio" class="form-control" />
+                <span asp-validation-for="negocio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="descripcion" class="control-label"></label>
+                <input asp-for="descripcion" class="form-control" />
+                <span asp-validation-for="descripcion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="precio" class="control-label"></label>
+                <input asp-for="precio" class="form-control" />
+                <span asp-validation-for="precio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="stock" class="control-label"></label>
+                <input asp-for="stock" class="form-control" />
+                <span asp-validation-for="stock" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="visitas" class="control-label"></label>
+                <input asp-for="visitas" class="form-control" />
+                <span asp-validation-for="visitas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="meInteresa" class="control-label"></label>
+                <input asp-for="meInteresa" class="form-control" />
+                <span asp-validation-for="meInteresa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="idestado" class="control-label"></label>
+                <select id="idestado" class="form-select" name="idestado" asp-items="@ViewBag.tipoestado">
+                    <option value="0">Seleccione</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="imagen1" class="control-label"></label>
+                <input name="imagen1" class="form-control" type="file" id="imagen1" />
+                <span asp-validation-for="imagen1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="imagen2" class="control-label"></label>
+                <input name="imagen2" class="form-control" type="file" id="imagen2" />
+                <span asp-validation-for="imagen2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="imagen3" class="control-label"></label>
+                <input name="imagen3" class="form-control" type="file" id="imagen3" />
+                <span asp-validation-for="imagen3" class="text-danger"></span>
+            </div>
+        
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<p>@ViewBag.mensaje</p>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
