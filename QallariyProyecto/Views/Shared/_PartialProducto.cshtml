@@ -1,0 +1,29 @@
+﻿@model IEnumerable<QallariyProyecto.Models.Producto>
+
+<div style="display: flex; flex: 1; flex-flow: row wrap; ">
+    @foreach (var item in Model)
+    {
+        <div class="container-img" style="width:200px;height:320px;background-color:white;margin:20px;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;border-radius:5px">
+            <div style="display:flex;height:55%;flex-direction:column;justify-content: center;align-items: center;">
+
+                <img src="@Html.DisplayFor(modelItem => item.imagen1)" style="width: 150px;height:150px;border-radius:10px" class="img-card">
+            </div>
+            <div style="width:100%;display:flex;height:45%;padding:0 10px 10px 10px;justify-content: center;align-items: center;flex-direction:column">
+                <p style="margin:0 0 8px 0;font-weight:bold">@Html.DisplayFor(modelItem => item.idProducto)</p>
+                <p style="margin:0 0 8px 0;font-size:13px;max-height:60px;overflow:hidden;text-align: justify;">@Html.DisplayFor(modelItem => item.descripcion)</p>
+                <div style="display:flex;width:100%;flex-direction:row;align-items:center;">
+                    <p style="margin:0;font-size:12px;font-weight:bold;width:30%;text-align:left">Precio</p>
+                    <p style="margin:0;font-size:12px;text-align:center;max-width:60px">@Html.DisplayFor(modelItem => item.precio)</p>
+                </div>
+                <div style="display:flex;width:100%;flex-direction:row;align-items:center;">
+                    <p style="margin:0;font-size:12px;font-weight:bold;width:30%;text-align:left">Stock</p>
+                    <p style="margin:0;font-size:12px;text-align:center;max-width:60px">@Html.DisplayFor(modelItem => item.stock)</p>
+                    <button type="submit" style="position: relative; width: 60%; border: none; outline: none; background: #fff; border-radius: 5px; transition: 0.5s; cursor: pointer; opacity: 0.5; font-size: 12px;color:#757575;margin-top: 5px">
+                        Ver
+                        detalle
+                    </button>
+                </div>
+            </div>
+        </div>
+    }
+    </div>

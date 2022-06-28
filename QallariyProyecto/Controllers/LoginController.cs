@@ -16,7 +16,7 @@ namespace QallariyProyecto.Controllers
         string cadena = @"server= DESKTOP-FFL9BBK; database=qallariy; Trusted_Connection=true; " +
             "MultipleActiveResultSets=true; TrustServerCertificate=False; Encrypt=False ";
         string sesion = "";
-
+        VendedorController vc = new VendedorController();
         string verifica(string corre, string clave)
         { 
             string mensaje = "";
@@ -79,35 +79,24 @@ namespace QallariyProyecto.Controllers
                 return View(await Task.Run(() => reg));
 
             string mensaje = verifica(reg.correo, reg.password);
-
+            
 
 
             if (mensaje != "Ok")
-
             {
-
-
                 HttpContext.Session.SetString(sesion, "");
-
-
                 ModelState.AddModelError("", mensaje);
-
-
-
                 return View(await Task.Run(() => reg));
 
             }
 
-
+            Vendedor v = await vc.Buscar(reg.correo);
             ModelState.AddModelError("", "");
-           
-                HttpContext.Session.SetString(sesion, reg.correo);
-            
-            
+          
+            HttpContext.Session.SetString("_correo", reg.correo);
+            HttpContext.Session.SetString("_id", v.idVendedor.ToString());
 
-           
-
-            return RedirectToAction("detalleNegocio");
+            return RedirectToAction("Index","Main");
 
 
 

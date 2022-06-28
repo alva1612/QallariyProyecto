@@ -10,6 +10,7 @@ namespace QallariyProyecto.Controllers
     {
         public IActionResult registroTienda()
         {
+
             return View();
         }
     }

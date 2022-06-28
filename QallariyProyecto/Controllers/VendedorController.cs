@@ -64,7 +64,7 @@ namespace QallariyProyecto.Controllers
             return View(reg);
         }
 
-        async Task<Vendedor> Buscar(string correo)
+        public async Task<Vendedor> Buscar(string correo)
         {
             Vendedor temporal = new Vendedor();
             using (var cliente = new HttpClient())

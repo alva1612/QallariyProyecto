@@ -48,6 +48,24 @@ namespace QallariyProyecto.Controllers
         public async Task<IEnumerable<Distrito>> distritos(int id)
         {
             List<Distrito> temporal = new List<Distrito>();
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44375/api/Utils/");
+
+                HttpResponseMessage mensaje = await client.GetAsync("distrito?id=" + id);
+                if (mensaje.IsSuccessStatusCode)//200
+                {
+                    string resultado = await mensaje.Content.ReadAsStringAsync();
+                    temporal = JsonConvert.DeserializeObject<List<Distrito>>(resultado);
+                }
+            }
+
+            return temporal;
+        }
+
+        public async Task<IEnumerable<Distrito>> distritos(int id)
+        {
+            List<Distrito> temporal = new List<Distrito>();
             using (var cliente = new HttpClient())
             {
                 cliente.BaseAddress = new Uri("https://localhost:44375/api/Utils/");
