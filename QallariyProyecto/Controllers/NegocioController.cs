@@ -23,19 +23,31 @@ namespace QallariyProyecto.Controllers
 
         public async Task<IActionResult> registrar()
         {
-            ViewBag.departamentos = new SelectList(await uc.departamentos(), "idDepartamento", "descripcion");
-            return View( await Task.Run(() => new NegocioUpload()));
+            //ViewBag.departamentos = new SelectList(await uc.departamentos(), "idDepartamento", "descripcion");
+            
+
+            ViewBag.Departamentos = new SelectList(await uc.departamentos(), "idDepartamento", "descripcion");
+            ViewBag.Provincias = new SelectList(await uc.provincias(0), "idProvincia", "descripcion");
+            ViewBag.Distritos = new SelectList(await uc.distritos(0), "idDistrito", "descripcion");
+
+            return View(await Task.Run(() => new NegocioUpload()));
+
         }
 
         [HttpPost] public async Task<IActionResult>registrar(NegocioUpload reg, IFormFile imagen)
         {
+
+            ViewBag.Departamentos = new SelectList(await uc.departamentos(), "idDepartamento", "descripcion");
+            ViewBag.Provincias = new SelectList(await uc.provincias(0), "idProvincia", "descripcion");
+            ViewBag.Distritos = new SelectList(await uc.distritos(0), "idDistrito", "descripcion");
+
             /*
             if (reg.imagen != null)
             {
                 if (reg.imagen.Length>0)
                 {*/
 
-                    using (var target = new MemoryStream())
+            using (var target = new MemoryStream())
                     {
                         
                         imagen.CopyTo(target);
@@ -51,7 +63,7 @@ namespace QallariyProyecto.Controllers
 
             using(var client= new HttpClient())
             {
-                client.BaseAddress = new Uri("https://localhost:5001/api/Negocio/");
+                client.BaseAddress = new Uri("https://localhost:44375/api/Negocio/");
 
                 StringContent content = new StringContent(
                     JsonConvert.SerializeObject(reg), System.Text.Encoding.UTF8, "application/json");
@@ -67,6 +79,13 @@ namespace QallariyProyecto.Controllers
 
             return View(reg);
         }
+
         
+
+
+
+
+
+
     }
 }
