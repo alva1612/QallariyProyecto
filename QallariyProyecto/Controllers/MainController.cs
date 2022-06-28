@@ -16,7 +16,7 @@ namespace QallariyProyecto.Controllers
             List<Negocio> temporal = new List<Negocio>();
             using (var cliente = new HttpClient())
             {
-                cliente.BaseAddress = new Uri("https://localhost:5001/api/Negocio/");
+                cliente.BaseAddress = new Uri("https://localhost:44375/api/Negocio/");
 
                 HttpResponseMessage mensaje = await cliente.GetAsync("listanegocio");
                 if (mensaje.IsSuccessStatusCode)

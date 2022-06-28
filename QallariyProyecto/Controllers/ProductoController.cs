@@ -21,6 +21,25 @@ namespace QallariyProyecto.Controllers
             return View();
         }
 
+        public async Task<IActionResult> VerProducto(string idProducto)
+        {
+            Producto temporal = new Producto();
+            List<Producto> productos = new List<Producto>();
+            using (var cliente = new HttpClient())
+            {
+                cliente.BaseAddress = new Uri("https://localhost:44375/api/Producto/");
+
+                HttpResponseMessage mensaje = await cliente.GetAsync($"listaproductoxid?id={idProducto}");
+                if (mensaje.IsSuccessStatusCode)
+                {
+                    string resultado = await mensaje.Content.ReadAsStringAsync();
+                    temporal = JsonConvert.DeserializeObject<Producto>(resultado);
+                }
+            }
+
+            return View(temporal);
+        }
+
         public async Task<IActionResult> registrar()
         {
             //ViewBag.departamentos = new SelectList(await uc.departamentos(), "idDepartamento", "descripcion");

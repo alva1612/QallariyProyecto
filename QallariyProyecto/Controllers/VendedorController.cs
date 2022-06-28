@@ -17,7 +17,7 @@ namespace QallariyProyecto.Controllers
             List<TipoDocumento> temporal = new List<TipoDocumento>();
             using (var cliente = new HttpClient())
             {
-                cliente.BaseAddress = new Uri("https://localhost:5001/api/Utils/");
+                cliente.BaseAddress = new Uri("https://localhost:44375/api/Utils/");
                 //recibir mensaje
                 HttpResponseMessage mensaje = await cliente.GetAsync("tipoDocumento");
                 if (mensaje.IsSuccessStatusCode)
@@ -44,7 +44,7 @@ namespace QallariyProyecto.Controllers
 
             using (var cliente = new HttpClient())
             {
-                cliente.BaseAddress = new Uri("https://localhost:5001/api/Vendedor/");
+                cliente.BaseAddress = new Uri("https://localhost:44375/api/Vendedor/");
 
    
                 StringContent content = new StringContent(
@@ -69,7 +69,7 @@ namespace QallariyProyecto.Controllers
             Vendedor temporal = new Vendedor();
             using (var cliente = new HttpClient())
             {
-                cliente.BaseAddress = new Uri("https://localhost:5001/api/Vendedor/");
+                cliente.BaseAddress = new Uri("https://localhost:44375/api/Vendedor/");
                 //recibir mensaje
                 HttpResponseMessage mensaje = await cliente.GetAsync($"buscar?correo={correo}");
                 if (mensaje.IsSuccessStatusCode)//200
@@ -89,13 +89,14 @@ namespace QallariyProyecto.Controllers
  
             return View(await Task.Run(() => reg));
         }
+
         [HttpPost]
         public async Task<IActionResult> EditarVendedor(Vendedor reg)
         {
             string mensaje = "";
             using (var cliente = new HttpClient())
             {
-                cliente.BaseAddress = new Uri("https://localhost:5001/api/Vendedor/");
+                cliente.BaseAddress = new Uri("https://localhost:44375/api/Vendedor/");
 
                 StringContent content = new StringContent(
                 JsonConvert.SerializeObject(reg), System.Text.Encoding.UTF8, "application/json");

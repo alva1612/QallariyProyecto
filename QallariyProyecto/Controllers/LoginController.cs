@@ -13,8 +13,8 @@ namespace QallariyProyecto.Controllers
 {
     public class LoginController : Controller
     {
-        string cadena = @"server= DESKTOP-SHU1TP6; database=qallariy; Trusted_Connection=true; " +
-           "MultipleActiveResultSets=true; TrustServerCertificate=False; Encrypt=False ";
+        string cadena = @"server= DESKTOP-FFL9BBK; database=qallariy; Trusted_Connection=true; " +
+            "MultipleActiveResultSets=true; TrustServerCertificate=False; Encrypt=False ";
         string sesion = "";
 
         string verifica(string corre, string clave)
