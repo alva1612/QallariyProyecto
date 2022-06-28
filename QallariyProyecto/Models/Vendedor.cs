@@ -12,7 +12,7 @@ namespace QallariyProyecto.Models
             public string apellidos { get; set; }
             public string correo { get; set; }
             public int numeroDocumento { get; set; }
-            public string fechaNacimiento { get; set; }
+            public DateTime fechaNacimiento { get; set; }
             public string telefono { get; set; }
             public string password { get; set; }
             public int idTipDoc { get; set; }

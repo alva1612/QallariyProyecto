@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Negocios</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+            crossorigin="anonymous">
+    </head>
+    <style>
+        .fondo{
+            background-color: #f5f5f5; 
+        }
+        .login-box{
+            border: 8px outset #61E1E6;
+            border-radius: 45px;
+            width: auto;
+            height: auto;
+            text-align: center;
+            margin: auto;
+            margin-top: 8%;
+            padding: 20px 50px;
+            font-family: 'century gothic';
+            background-color:white;
+        }
+        .imgmer{
+            width: 250px;
+        }
+    </style>
+    <body class="fondo">
+        <div class="container">
+            <div class="login-box">
+                <!--prueba-->
+                <div class="row col-md">
+                    <div class="col-6 mb-4 mt-4" id='img_container'>
+                        <img class="imgmer" src="https://webdevtrick.com/wp-content/uploads/preview-img.jpg" alt="your image" title="">
+                    </div>
+                    <div class="col-6 mb-3 mt-4">
+                        <label for="inputNombre" class="inputNombre">Nombre</label>
+                        <label class="descripcion">Piezas únicas e intencionadas hechas con un poco de magia + buena energía. Piezas únicas e intencionadas hechas con un poco de magia + buena energía. Piezas únicas e intencionadas hechas con un poco. Piezas únicas e intencionadas hechas con un poco de magia . Piezas únicas e intencionadas hechas con un poco de magia. Piezas únicas e intencionadas hechas con un poco. </label>
+                    </div>
+
+                    <div class="form-group col-md-4 mt-5">
+                        <label for="inputCat">Categoría</label>
+                        <br>
+                        <label for="inputCat" class="form-label">xxxxxxxxxxx</label>
+                    </div>
+
+                    <div class="form-group col-md-4 mt-5">
+                        <label for="inputDirec">Dirección</label>
+                        <br>
+                        <label for="inputDirec" class="form-label">xxxxxxxxxxx</label>
+                    </div>
+
+                    <div class="form-group col-md-4 mt-5">
+                        <label for="inputProp">Propietario</label>
+                        <br>
+                        <label for="inputProp" class="form-label">xxxxxxxxxxx</label>
+                    </div>
+
+                    <div class="col-6 mb-3 mt-5">
+                        <label for="inputPhone" class="form-label">Teléfono</label>
+                        <br>
+                        <label for="inputPhone" class="form-label">xxxxxxxxxxx</label>
+                    </div>
+
+                    <div class="col-6 mb-3 mt-5">
+                        <label for="inputCorreo" class="form-label">Correo</label>
+                        <br>
+                        <label for="inputCorreo" class="form-label">xxxxxxxxxxx</label>
+                    </div>
+
+                </div>
+            </div>
+
+            <!--AQUI EMPIEZA EL LISTADO/ CARLO-->
+            <div style="margin-bottom:20px">
+                <p style="font-size: 20px; font-weight: bold;margin-top: 60px;">Negocios</p>
+                <div style="display: flex; flex: 1; flex-flow: row wrap;">
+                </div>
+            </div>
+            <div style="margin-bottom:30px">
+                <p style="font-size: 20px; font-weight: bold">Productos</p>
+                <div style="display: flex; flex: 1; flex-flow: row wrap;">
+                </div>
+            </div>
+            <div style="margin-bottom:30px">
+                <a href="/registro/tienda">Ir al registro tienda</a>
+            </div>
+
+            <div style="margin-bottom:30px">
+
+                @Html.ActionLink("EditarVendedor", "EditarVendedor", "Vendedor", new { correo = ViewBag.usuario })
+                @*<a href="/registro/tienda">Ir al registro tienda</a>*@
+            </div>
+
+        </div>
+    </body>
+</html>

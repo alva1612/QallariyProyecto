@@ -70,27 +70,28 @@
 </style>
 
     <body class="body">
-        <form>
+        <form asp-action="logeo">
             <div class="login-box">
-                <h1>Iniciar Sesion</h1> 
+                <h1>Iniciar Sesion</h1>
 
                 <div class="textBox">
-                    <div class="textLine"> 
+                    <div class="textLine">
                         <p>Correo</p>
-                        <input class="AnswerBox" type="text" placeholder="Ingrese su correo" name="mail"> 
+                        <input class="AnswerBox" type="text" placeholder="Ingrese su correo" name="correo">
                     </div>
-                    <div class="textLine"> 
+                    <div class="textLine">
                         <p>Password</p>
-                        <input class="AnswerBox" type="password" placeholder="Ingrese su password" name="password"> 
+                        <input class="AnswerBox" type="password" placeholder="Ingrese su password" name="password">
                     </div>
                 </div>
-                
+
                 <div>
                     <p class="forgetPass">Olvidaste tu contrasena?</p>
                 </div>
-                
-                <button class="ingresar">Ingresar</button> 
-                
+
+                <button class="ingresar">Ingresar</button>
+                <input type="submit" value="Create" class="btn btn-primary" />
+
                 <div>
                     <p class="createAccount"><a href="/registro/cargar">Crear una cuenta</a></p>
                 </div>
