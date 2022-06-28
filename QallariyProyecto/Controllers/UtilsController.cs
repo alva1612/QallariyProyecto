@@ -11,7 +11,7 @@ namespace QallariyProyecto.Controllers
 {
     public class UtilsController : Controller
     {
-        async Task<IEnumerable<Departamento>> departamentos()
+        public async Task<IEnumerable<Departamento>> departamentos()
         {
             List<Departamento> temporal = new List<Departamento>();
             using (var cliente = new HttpClient())
@@ -28,7 +28,7 @@ namespace QallariyProyecto.Controllers
             return temporal;
         }
 
-        async Task<IEnumerable<Provincia>> provincias(int id)
+        public async Task<IEnumerable<Provincia>> provincias(int id)
         {
             List<Provincia> temporal = new List<Provincia>();
             using (var cliente = new HttpClient())

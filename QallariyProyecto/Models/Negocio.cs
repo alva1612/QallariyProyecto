@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -61,5 +62,17 @@ namespace QallariyProyecto.Models
         public string descprov { get; set; }
         public int iddepart { get; set; }
         public string descdepart { get; set; }
+    }
+
+    public class NegocioUpload
+    {
+        public string nombreNegocio { get; set; }
+        public string descripcionNegocio { get; set; }
+        public int vendedor { get; set; }
+        public int categoria { get; set; }
+        public int distrito { get; set; }
+        public string direccion { get; set; }
+        public string telefono { get; set; }
+        public byte[] imagen { get; set; }
     }
 }
