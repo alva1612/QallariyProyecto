@@ -15,7 +15,6 @@ namespace QallariyProyecto.Controllers
 {
     public class NegocioController : Controller
     {
-        private DbImagen db = new DbImagen();
         UtilsController uc = new UtilsController();
         public IActionResult Index()
         {
