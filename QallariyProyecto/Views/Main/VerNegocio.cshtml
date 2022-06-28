@@ -1,0 +1,56 @@
+﻿@model QallariyProyecto.Models.NegocioListado
+
+
+@{
+    ViewData["Title"] = "VerNegocio";
+}
+
+<div class="container" style="display: flex; flex: 1; padding: 20px; flex-direction: column; margin-bottom: 40px;background-color: #eeeeee">
+
+    <div id="login-box" style="width: 80%; text-align: center; margin: auto; padding: 20px 50px; font-family: century gothic; background-color: white; border-radius: 10px">
+        <div class="row col-md">
+
+            <div class="col-6 mb-3 imgmer" id="img_container" style="border: 1px solid #555;border-radius:8px">
+                <img id="input_imagen" style="width: 250px; margin-top: 17px;" src="@Html.DisplayFor(model => model.imagen)" alt="Imagen" title="">
+            </div>
+            <div class="col-6 mb-3" style="margin-top: 30px;">
+                <label for="inputNombre" class="form-label" style="font-weight: bold; font-size: 20px">@Html.DisplayFor(model => model.nombreNegocio)</label> <br> <label>@Html.DisplayFor(model => model.descripcionNegocio)</label>
+            </div>
+
+            <div class="form-group col-md-4" style="margin-top: 20px;">
+                <label for="inputCat" style="font-weight: bold; font-size: 18px">Categoría</label>
+                <br> <label for="inputCat" class="form-label" style="font-size: 18px">@Html.DisplayFor(model => model.categoria)</label>
+            </div>
+
+            <div class="form-group col-md-4" style="margin-top: 20px;">
+                <label for="inputDirec" style="font-weight: bold; font-size: 18px">Dirección</label>
+                <br> <label for="inputDirec" class="form-label" style="font-size: 18px">@Html.DisplayFor(model => model.direccion)</label>
+            </div>
+
+            <div class="form-group col-md-4" style="margin-top: 40px;">
+                <label for="inputProp" style="font-weight: bold; font-size: 18px">Propietario</label>
+                <br> <label for="inputProp" class="form-label" style="font-size: 18px">@Html.DisplayFor(model => model.nombrevendedor) @Html.DisplayFor(model => model.apellidovendedor)</label>
+            </div>
+
+            <div class="col-6 mb-3" style="margin-top: 40px;">
+                <label for="inputPhone" class="form-label" style="font-weight: bold; font-size: 18px">Teléfono</label> <br>
+                <label for="inputPhone" class="form-label" style="font-size: 18px">@Html.DisplayFor(model => model.telefono)</label>
+            </div>
+
+            <div class="col-6 mb-3" style="margin-top: 40px;">
+                <label for="inputCorreo" class="form-label" style="font-weight: bold; font-size: 18px">Correo</label> <br>
+                <label for="inputCorreo" class="form-label" style="font-size: 18px">@Html.DisplayFor(model => model.correo)</label>
+
+            </div>
+        </div>
+        <div style="height:1px;width: 100%;background-color:#bdbdbd;align-self:center;margin-bottom:20px;margin-top:10px"></div>
+        <div>
+            <p style="font-size:22px; font-weight:bold;text-align:left;margin-left:20px;margin-bottom:0px">Productos</p>
+                <div>
+                    @Html.Partial("_PartialProductoCarrusel", ViewBag.productos as IEnumerable<Producto>)
+                </div>
+
+        </div>
+    </div>
+    <br>
+</div>

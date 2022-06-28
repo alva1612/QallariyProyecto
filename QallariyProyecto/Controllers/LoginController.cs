@@ -13,8 +13,8 @@ namespace QallariyProyecto.Controllers
 {
     public class LoginController : Controller
     {
-        string cadena = @"server= DESKTOP-87J8U10\SQLEXPRESS; database=qallariy; Trusted_Connection=true; " +
-           "MultipleActiveResultSets=true; TrustServerCertificate=False; Encrypt=False ";
+        string cadena = @"server=.\SQLEXPRESS;database=qallariy;Trusted_Connection=True;" +
+                "MultipleActiveResultSets=True;TrustServerCertificate=False;Encrypt=False";
         string sesion = "";
         VendedorController vc = new VendedorController();
         string verifica(string corre, string clave)
@@ -86,9 +86,6 @@ namespace QallariyProyecto.Controllers
             {
                 HttpContext.Session.SetString(sesion, "");
                 ModelState.AddModelError("", mensaje);
-
-
-
                 return View(await Task.Run(() => reg));
 
             }
@@ -96,7 +93,6 @@ namespace QallariyProyecto.Controllers
             Vendedor v = await vc.Buscar(reg.correo);
             ModelState.AddModelError("", "");
           
-                HttpContext.Session.SetString(sesion, reg.correo);
             HttpContext.Session.SetString("_correo", reg.correo);
             HttpContext.Session.SetString("_id", v.idVendedor.ToString());
 

@@ -35,10 +35,11 @@
         text-align: initial;
         margin-top: 15px;
     }
-    .AnswerBox{
-        padding: 1px 45px;
+    .AnswerBox {
+        width: 100%;
+        padding: 1px 15px;
         height: 30px;
-        border-radius: 6px;  
+        border-radius: 6px;
     }
     .forgetPass{
         font-size: 13px;
@@ -70,7 +71,7 @@
 </style>
 
     <body class="body">
-        <form asp-action="logeo">
+        <form asp-action="Logeo">
             <div class="login-box">
                 <h1>Iniciar Sesion</h1>
 
@@ -90,10 +91,9 @@
                 </div>
 
                 <button class="ingresar">Ingresar</button>
-                <input type="submit" value="Create" class="btn btn-primary" />
 
                 <div>
-                    <p class="createAccount"><a href="/registro/cargar">Crear una cuenta</a></p>
+                    <p class="createAccount"><a asp-controller="Vendedor" asp-action="registro">Crear una cuenta</a></p>
                 </div>
             </div>
         </form>

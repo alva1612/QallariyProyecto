@@ -23,7 +23,7 @@ namespace QallariyProyecto.Controllers
 
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://localhost:5001/api/MetodoPago/");
+                client.BaseAddress = new Uri("https://localhost:44375/api/MetodoPago/");
 
                 HttpResponseMessage mensaje = await client.GetAsync("listarmetodopagovendedor?metodoPago="+id);
                 if (mensaje.IsSuccessStatusCode)
@@ -40,7 +40,7 @@ namespace QallariyProyecto.Controllers
             string mensaje = "";
             using (var cliente = new HttpClient())
             {
-                cliente.BaseAddress = new Uri("https://localhost:5001/api/MetodoPago/");
+                cliente.BaseAddress = new Uri("https://localhost:44375/api/MetodoPago/");
 
                 HttpResponseMessage msg = await cliente.DeleteAsync("eliminarmetodo?id=" + id);
                 if (msg.IsSuccessStatusCode)

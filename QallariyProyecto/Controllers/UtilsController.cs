@@ -16,7 +16,7 @@ namespace QallariyProyecto.Controllers
             List<Departamento> temporal = new List<Departamento>();
             using (var cliente = new HttpClient())
             {
-                cliente.BaseAddress = new Uri("https://localhost:5001/api/Utils/");
+                cliente.BaseAddress = new Uri("https://localhost:44375/api/Utils/");
                 //recibir mensaje
                 HttpResponseMessage mensaje = await cliente.GetAsync("departamentos");
                 if (mensaje.IsSuccessStatusCode)//200
@@ -33,7 +33,7 @@ namespace QallariyProyecto.Controllers
             List<Provincia> temporal = new List<Provincia>();
             using (var cliente = new HttpClient())
             {
-                cliente.BaseAddress = new Uri("https://localhost:5001/api/Utils/");
+                cliente.BaseAddress = new Uri("https://localhost:44375/api/Utils/");
                 //recibir mensaje
                 HttpResponseMessage mensaje = await cliente.GetAsync("provincia?id="+ id);
                 if (mensaje.IsSuccessStatusCode)//200
@@ -50,7 +50,7 @@ namespace QallariyProyecto.Controllers
             List<Distrito> temporal = new List<Distrito>();
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("https://localhost:5001/api/Utils/");
+                client.BaseAddress = new Uri("https://localhost:44375/api/Utils/");
 
                 HttpResponseMessage mensaje = await client.GetAsync("distrito?id=" + id);
                 if (mensaje.IsSuccessStatusCode)//200

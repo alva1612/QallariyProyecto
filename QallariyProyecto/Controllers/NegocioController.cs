@@ -52,7 +52,7 @@ namespace QallariyProyecto.Controllers
 
             using(var client= new HttpClient())
             {
-                client.BaseAddress = new Uri("https://localhost:5001/api/Negocio/");
+                client.BaseAddress = new Uri("https://localhost:44375/api/Negocio/");
 
                 StringContent content = new StringContent(
                     JsonConvert.SerializeObject(reg), System.Text.Encoding.UTF8, "application/json");
