@@ -66,7 +66,7 @@ namespace QallariyProyecto.Controllers
             ViewBag.mensaje = mensaje;
             ViewBag.departamentos = new SelectList(await uc.departamentos(), "idDepartamento", "descripcion");
 
-            return View(reg);
+            return RedirectToAction("registroProducto", "Producto");
         }
         
     }

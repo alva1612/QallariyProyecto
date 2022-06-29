@@ -96,10 +96,7 @@ namespace QallariyProyecto.Controllers
             HttpContext.Session.SetString("_correo", reg.correo);
             HttpContext.Session.SetString("_id", v.idVendedor.ToString());
 
-            return RedirectToAction("Index","Main");
-
-
-
+            return RedirectToAction("registrar", "Negocio");
         }
 
         public IActionResult detalleNegocio()

@@ -59,58 +59,58 @@
     }
 </style>
 <body class="fondo">
-	<form class="row g-3 box">
+	<form class="row g-3 box" asp-action="registro">
 		<p class="title">Es hora de registrar tu negocio</p>
 		<div class="datos-negocio d-flex">
-			<div class="dcontent">
-				<div class="row col-md">
+            <div class="dcontent">
+                <div class="row col-md">
                     <div class="container animated bounce col-12 mb-3">
-						<form id="form1" runat="server">
-				    		<div class="alert">
-				   			</div>
-				    		<div class="imgmer" id='img_container'>
-				    			<img id="preview" src="https://webdevtrick.com/wp-content/uploads/preview-img.jpg" alt="your image" title=''/>
-				    		</div> 
-				    		<div class="input-group"> 
-				    		<div class="custom-file">
-				    			<label class="custom-file-label" for="inputGroupFile01">Selecciona un logo</label> <br>
-							    <input type="file" id="inputGroupFile01" class="imgInp custom-file-input" aria-describedby="inputGroupFileAddon01">    
-							</div>
-							</div>
-						</form>
-            		</div>
-		
+                        <a id="form1" runat="server">
+                            <div class="alert">
+                            </div>
+                            <div class="imgmer" id='img_container'>
+                                <img id="preview" src="https://webdevtrick.com/wp-content/uploads/preview-img.jpg" alt="your image" title='' />
+                            </div>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <label class="custom-file-label" for="inputGroupFile01">Selecciona un logo</label> <br>
+                                    <input type="file" id="inputGroupFile01" class="imgInp custom-file-input" aria-describedby="inputGroupFileAddon01">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
                     <div class="col-12 mb-3">
-                        <label for="inputNombre" class="form-label">Nombre</label> 
-                            <input name="inputNombre" type="text" class="form-control">
-                    </div>	
-					
+                        <label for="inputNombre" class="form-label">Nombre</label>
+                        <input name="inputNombre" type="text" class="form-control">
+                    </div>
+
                     <div class="col-6 mb-3">
                         <label for="inputCategoria" class="form-label">Categoria</label>
-                            <select name="inputCat" class="form-select">
-                                <option value="-1">Seleccione</option>
-                            </select>
+                        <select name="inputCat" class="form-select">
+                            <option value="-1">Seleccione</option>
+                        </select>
                     </div>
                     <div class="col-6 mb-3">
-                        <label for="inputPhone" class="form-label">Celular</label> 
+                        <label for="inputPhone" class="form-label">Celular</label>
                         <input type="text" class="form-control" name="inputPhone">
-                    </div>			
+                    </div>
                     <div class="form-group col-md-4">
                         <label for="inputDepa">Departamento</label> <select id="inputDepa"
-                        class="form-control">
-                        <option value="-1">Seleccione</option>
+                                                                            class="form-control">
+                            <option value="-1">Seleccione</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
-                            <label for="inputProv">Provincia</label> <select id="inputProv"
-                                class="form-control">
-                                <option value="-1">Seleccione</option>
-                            </select>
+                        <label for="inputProv">Provincia</label> <select id="inputProv"
+                                                                         class="form-control">
+                            <option value="-1">Seleccione</option>
+                        </select>
                     </div>
-                    <div class="form-group col-md-4" >
-                        <label for="inputDist">Distritos</label> 
+                    <div class="form-group col-md-4">
+                        <label for="inputDist">Distritos</label>
                         <select id="inputDist" class="form-control">
-                        <option value="-1">Seleccione</option>
+                            <option value="-1">Seleccione</option>
                         </select>
                     </div>
                 </div>
@@ -119,12 +119,18 @@
                     <textarea class="form-control" name="inputDesc" rows="3"></textarea>
                 </div>
 
-		        <button type="submit" class="btn btn-primary"> Sign in</button>
+                <button type="submit" class="btn btn-primary"> Sign in</button>
 
-                <p style="text-align: center; padding-top: 10px;">
-                    Si ya tienes una cuenta de vendedor, haz click <strong> aqui
+                <a style="text-align: center; padding-top: 10px; text-decoration: none" asp-controller="Login" asp-action="Logeo">
+                    Si ya tienes una cuenta de vendedor, haz click <strong>
+                        aqui
                     </strong>
-                </p>
+                </a>
+                <a style="text-align: center; padding-top: 10px; text-decoration: none" asp-controller="Login" asp-action="Logeo">
+                    Si ya tienes una cuenta de vendedor, haz click <strong>
+                        aqui
+                    </strong>
+                </a>
             </div>
         </div>
 	</form>

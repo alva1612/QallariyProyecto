@@ -61,7 +61,7 @@ namespace QallariyProyecto.Controllers
             ViewBag.mensaje = mensaje;
             ViewBag.tipoDocumento = new SelectList(await tipoDocumento(), "idTipDoc", "descripcion");
 
-            return View(reg);
+            return RedirectToAction("Login", "Logeo");
         }
 
         public async Task<Vendedor> Buscar(string correo)
@@ -91,6 +91,30 @@ namespace QallariyProyecto.Controllers
         }
         [HttpPost]
         public async Task<IActionResult> EditarVendedor(Vendedor reg)
+        {
+            string mensaje = "";
+            using (var cliente = new HttpClient())
+            {
+                cliente.BaseAddress = new Uri("https://localhost:44375/api/Vendedor/");
+
+                StringContent content = new StringContent(
+                JsonConvert.SerializeObject(reg), System.Text.Encoding.UTF8, "application/json");
+
+                HttpResponseMessage msg = await cliente.PutAsync("actualizarvendedor", content);
+                if (msg.IsSuccessStatusCode)
+                {
+                    mensaje = await msg.Content.ReadAsStringAsync();
+                }
+            }
+
+
+
+            ViewBag.mensaje = mensaje;
+            ViewBag.tipoDocumento = new SelectList(await tipoDocumento(), "idTipDoc", "descripcion");
+
+            return View(reg);
+        }
+        public async Task<IActionResult> Index(Vendedor reg)
         {
             string mensaje = "";
             using (var cliente = new HttpClient())

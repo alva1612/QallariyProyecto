@@ -62,7 +62,22 @@ namespace QallariyProyecto.Controllers
 
             return temporal;
         }
+        public async Task<IEnumerable<Estado>> estados()
+        {
+            List<Estado> temporal = new List<Estado>();
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44375/api/Utils/");
 
-        //async Task<IEnumerable>
+                HttpResponseMessage mensaje = await client.GetAsync("estado");
+                if (mensaje.IsSuccessStatusCode)//200
+                {
+                    string resultado = await mensaje.Content.ReadAsStringAsync();
+                    temporal = JsonConvert.DeserializeObject<List<Estado>>(resultado);
+                }
+            }
+
+            return temporal;
+        }
     }
 }
