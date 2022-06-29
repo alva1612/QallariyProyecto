@@ -24,8 +24,9 @@ namespace QallariyProyecto.Controllers
         public async Task<IActionResult> registrar()
         {
             ViewBag.departamentos = new SelectList(await uc.departamentos(), "idDepartamento", "descripcion");
-            
-            return View( await Task.Run(() => new NegocioUpload()));
+            ViewBag.distritos = new SelectList(await uc.distritos(), "idDistrito", "descripcion");
+            ViewBag.cat = new SelectList(await uc.categorias(), "idCategoria", "descripcion");
+            return View(await Task.Run(() => new NegocioUpload()));
         }
 
         [HttpPost] public async Task<IActionResult>registrar(NegocioUpload reg, IFormFile imagen)
@@ -49,8 +50,9 @@ namespace QallariyProyecto.Controllers
             }
             
             string mensaje = "";
-
-            using(var client= new HttpClient())
+            var userId = HttpContext.Request.Cookies["user_id"];
+            reg.vendedor = Int32.Parse(userId);
+            using (var client= new HttpClient())
             {
                 client.BaseAddress = new Uri("https://localhost:44375/api/Negocio/");
 
@@ -63,10 +65,11 @@ namespace QallariyProyecto.Controllers
                     mensaje = await msg.Content.ReadAsStringAsync();
                 }
             }
-            ViewBag.mensaje = mensaje;
             ViewBag.departamentos = new SelectList(await uc.departamentos(), "idDepartamento", "descripcion");
+            ViewBag.distritos = new SelectList(await uc.distritos(), "idDistrito", "descripcion");
+            ViewBag.cat = new SelectList(await uc.categorias(), "idCategoria", "descripcion");
 
-            return RedirectToAction("registroProducto", "Producto");
+            return RedirectToAction("registrar", "Negocio");
         }
         
     }

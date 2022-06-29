@@ -1,13 +1,9 @@
 ﻿@model QallariyProyecto.Models.NegocioUpload
 
-@{
-    ViewData["Title"] = "registrar";
-}
+@{ ViewData["Title"] = "registrar"; }
 
-<h1>registrar</h1>
+<h1>Registrar Negocio</h1>
 
-<h4>NegocioUpload</h4>
-<hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="registrar" asp-controller="Negocio" enctype="multipart/form-data" method="post">
@@ -22,19 +18,19 @@
                 <input asp-for="descripcionNegocio" class="form-control" />
                 <span asp-validation-for="descripcionNegocio" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="display:none">
                 <label asp-for="vendedor" class="control-label"></label>
-                <input asp-for="vendedor" class="form-control" />
+                <input asp-for="vendedor" class="form-control" value=ViewBag.id />
                 <span asp-validation-for="vendedor" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="categoria" class="control-label"></label>
-                <input asp-for="categoria" class="form-control" />
+                <select asp-for="categoria" asp-items="@ViewBag.cat" class="form-control"></select>
                 <span asp-validation-for="categoria" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="distrito" class="control-label"></label>
-                <input asp-for="distrito" class="form-control" />
+                <select asp-for="distrito" asp-items="@ViewBag.distritos" class="form-select"></select>
                 <span asp-validation-for="distrito" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -49,7 +45,7 @@
             </div>
             <div class="form-group">
                 <label label-for="imagen" class="control-label"></label>
-                <input name="imagen" class="form-control" type="file" id="imagen"/>
+                <input name="imagen" class="form-control" type="file" id="imagen" />
             </div>
             <div class="form-group">
                 <input type="submit" formmethod="post" asp-controller="Negocio" asp-action="registrar" value="Registrar" />

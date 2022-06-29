@@ -95,6 +95,7 @@ namespace QallariyProyecto.Controllers
           
             HttpContext.Session.SetString("_correo", reg.correo);
             HttpContext.Session.SetString("_id", v.idVendedor.ToString());
+            HttpContext.Response.Cookies.Append("user_id", v.idVendedor.ToString());
 
             return RedirectToAction("registrar", "Negocio");
         }

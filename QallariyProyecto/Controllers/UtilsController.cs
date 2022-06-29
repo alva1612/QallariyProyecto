@@ -79,5 +79,39 @@ namespace QallariyProyecto.Controllers
 
             return temporal;
         }
+        public async Task<IEnumerable<Distrito>> distritos()
+        {
+            List<Distrito> temporal = new List<Distrito>();
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44375/api/Utils/");
+
+                HttpResponseMessage mensaje = await client.GetAsync("distritos");
+                if (mensaje.IsSuccessStatusCode)//200
+                {
+                    string resultado = await mensaje.Content.ReadAsStringAsync();
+                    temporal = JsonConvert.DeserializeObject<List<Distrito>>(resultado);
+                }
+            }
+
+            return temporal;
+        }
+        public async Task<IEnumerable<Categoria>> categorias()
+        {
+            List<Categoria> temporal = new List<Categoria>();
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44375/api/Utils/");
+
+                HttpResponseMessage mensaje = await client.GetAsync("categorias");
+                if (mensaje.IsSuccessStatusCode)//200
+                {
+                    string resultado = await mensaje.Content.ReadAsStringAsync();
+                    temporal = JsonConvert.DeserializeObject<List<Categoria>>(resultado);
+                }
+            }
+
+            return temporal;
+        }
     }
 }
